@@ -1,0 +1,18 @@
+<div class="container">
+	<div id="weather">
+		<h2 class="is-size-3"><strong>Now: </strong><%= @time_now.strftime("%x %X") %></h2>
+		<p class="is-size-3"><strong>Tokyo: </strong>
+			<%= @tokyo["weather"][0]["main"] %>
+			<strong>Temp: </strong>
+			<%= (@tokyo["main"]["temp"] - 273.15).round(1) %>
+		</div>
+		<p class="is-size-3"><strong>New York: </strong>
+			<%= @newyork["weather"][0]["main"] %>
+			<strong>Temp: </strong>
+			<%= (@newyork["main"]["temp"] - 273.15).round(1) %>
+		</div>
+</div>
+
+<% content_for 'js_script' do %>
+<script type="text/javascript" src="/js/app.js"></script>
+<% end %>

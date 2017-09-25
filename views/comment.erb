@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="columns h-m">
+		<!-- 左側カラム -->
+		<div class="column is-one-third">
+			<form name="commentForm" class="" action="/new" method="post">
+				<div class="field">
+					<div class="control">
+						<label class="label">コメント</label>
+						<input id="input" class="input" type="text" name="comment" value="" placeholder="何か入力してください" required>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control">
+						<input class="button is-primary" type="submit" name="" value="送る">
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- 左側カラム -->
+		<!-- 右側カラム -->
+		<div class="column">
+			<!-- フラッシュメッセージ -->
+			<%= erb :flash_message %>
+			<!-- 投稿表示 -->
+			<ul>
+				<% @post.each do |p| %>
+				<div class="colimns">
+					<li class="message-style">
+						<div class="column">
+							<article class="message">
+								<div class="message-body">
+									<p class="is-size-5"><%= p.comment %></p>
+									<small><%= p.created_at %></small>
+								</div>
+							</article>
+						</div>
+						<div class="column">
+							<form action="/delete/<%= p.id %>" method="post">
+								<input type="hidden" name="_method" value="delete">
+								<input type="submit" class="button is-small is-danger" value="削除">
+							</form>
+						</div>
+					</li>
+					<% end %>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<!-- 右側カラム -->
+</div>
+
+<% content_for 'js_script' do %>
+<script type="text/javascript" src="./js/app.js"></script>
+<% end %>

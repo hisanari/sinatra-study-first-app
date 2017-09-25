@@ -1,0 +1,33 @@
+body {
+
+}
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+/*フォーム*/
+
+
+
+/*余白*/
+
+.h-m{
+  margin-top: 1.2em;
+}
+
+/*メッセージ*/
+.message-style {
+  border-bottom: solid 0.5px #CCCCCC;
+}
+
+/*フッター*/
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+}

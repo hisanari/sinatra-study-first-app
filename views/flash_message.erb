@@ -1,0 +1,14 @@
+<!-- フラッシュメッセージ -->
+<% if flash[:succese] %>
+	<div class='notification is-success'>
+		<strong><%= flash[:succese] %></strong>
+	</div>
+<% elsif flash[:warning] %>
+	<div class='notification is-warning'>
+		<strong><%= flash[:warning] %></strong>
+	</div>
+<% elsif flash[:danger] %>
+	<div class='notification is-danger'>
+		<strong><%= flash[:danger] %></strong>
+	</div>
+<% end %>
