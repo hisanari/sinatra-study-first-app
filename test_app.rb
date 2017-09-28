@@ -1,8 +1,11 @@
 require "./main"
 require "minitest/autorun"
 require "rack/test"
+require "minitest/reporters"
 
 ENV['RACK_ENV'] = 'test'
+
+MiniTest::Reporters.use!
 
 class HomeTest < MiniTest::Test
 	include Rack::Test::Methods
@@ -13,7 +16,7 @@ class HomeTest < MiniTest::Test
 
 	def test_my_default
 		get '/'
-		assert last_response.ok?
-		assert_equal "home", doc.at_css('title').tex
+		assertresponse :success
+		assert last_response.body.include?('Now')
 	end
 end

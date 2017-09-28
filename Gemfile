@@ -15,4 +15,5 @@ gem 'rack-flash3'
 group :test do
 	gem 'minitest'
 	gem 'rack-test'
+	gem 'minitest-reporters'
 end
